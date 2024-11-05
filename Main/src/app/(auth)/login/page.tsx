@@ -45,6 +45,15 @@ export default function LoginPreview() {
   async function onSubmit(values: z.infer<typeof formSchema>) {
     try {
       // Assuming an async login function
+
+      await fetch('/api/users/connection', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(values),
+      });
+
       console.log(values)
       toast(
         <pre className="mt-2 w-[340px] rounded-md bg-slate-950 p-4">

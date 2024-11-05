@@ -12,14 +12,13 @@ import Logos from "@/components/sections/logos";
 import Pricing from "@/components/sections/pricing";
 import Problem from "@/components/sections/problem";
 import Solution from "@/components/sections/solution";
-import Testimonials from "@/components/magicui/testimonials";
 import TestimonialsCarousel from "@/components/sections/testimonials-carousel";
 import { TestimonialsSection } from "@/components/sections/testimonials-section";
 
 export default function Home() {
   return (
     <main>
-      <Header />
+      {/* <Header />
       <Hero />
       <Logos />
       <DynamicSection id="home">
@@ -35,7 +34,7 @@ export default function Home() {
       <FAQ id={"home"} />
       <Blog />
       <CTA />
-      <Footer />
+      <Footer /> */}
     </main>
   );
 }
