@@ -23,7 +23,6 @@ import {
   CardTitle,
 } from '@/components/ui/card'
 import { Input } from '@/components/ui/input'
-import { PasswordInput } from '@/components/ui/password-input'
 
 // Improved schema with additional validation rules
 const formSchema = z.object({
@@ -105,7 +104,8 @@ export default function LoginPreview() {
                         </Link>
                       </div>
                       <FormControl>
-                        <PasswordInput
+                        <Input
+                          type="password"
                           id="password"
                           placeholder="******"
                           autoComplete="current-password"
