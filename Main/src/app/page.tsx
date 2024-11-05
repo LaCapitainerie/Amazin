@@ -8,18 +8,27 @@ import Footer from "@/components/sections/footer";
 import Header from "@/components/sections/header";
 import Hero from "@/components/sections/hero";
 import HowItWorks from "@/components/sections/how-it-works";
+import { ItemGrid } from "@/components/sections/item-grid";
 import Logos from "@/components/sections/logos";
 import Pricing from "@/components/sections/pricing";
 import Problem from "@/components/sections/problem";
 import Solution from "@/components/sections/solution";
 import TestimonialsCarousel from "@/components/sections/testimonials-carousel";
 import { TestimonialsSection } from "@/components/sections/testimonials-section";
+import { CardItem } from "@/components/ui/item-card";
+import { PrismaClient } from '@prisma/client';
 
-export default function Home() {
+export default async function Home() {
+  
+  const prisma = new PrismaClient();
+
+  const items = await prisma.item.findMany();
+
   return (
     <main>
-      {/* <Header />
-      <Hero />
+      <Header />
+      <ItemGrid itemsDefault={items} />
+      {/* <Hero />
       <Logos />
       <DynamicSection id="home">
         <Carrousel name="home" />
@@ -33,8 +42,8 @@ export default function Home() {
       <Pricing />
       <FAQ id={"home"} />
       <Blog />
-      <CTA />
-      <Footer /> */}
+      <CTA /> */}
+      <Footer />
     </main>
   );
 }
