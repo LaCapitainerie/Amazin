@@ -5,9 +5,10 @@ import { AnimatedSubscribeButton } from "@/components/ui/animated-subscribe-butt
 interface AnimatedButtonProps {
     beginText: string;
     endText: string;
+    onClick?: () => void;
 }
 
-export function AnimatedButton({ beginText, endText }: AnimatedButtonProps) {
+export function AnimatedButton({ beginText, endText, onClick }: AnimatedButtonProps) {
   return (
     <AnimatedSubscribeButton
       buttonColor="#000000"
@@ -25,6 +26,7 @@ export function AnimatedButton({ beginText, endText }: AnimatedButtonProps) {
           {endText}{" "}
         </span>
       }
+      onClick={onClick}
     />
   );
 }

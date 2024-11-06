@@ -1,14 +1,16 @@
 import { cn } from "@/lib/utils";
 import { HeartIcon, Text } from 'lucide-react';
 import { AnimatedButton } from "./button-item-card";
+import { toast } from "sonner";
 
 interface CardItemProps {
-    title: string;
-    description: string;
-    image: string;
+  id: number;
+  title: string;
+  description: string;
+  image: string;
 }
 
-export function CardItem({ title, description, image }: CardItemProps) {
+export function CardItem({ id, title, description, image }: CardItemProps) {
   return (
     <div className="max-w-xs w-full group/card">
       <div
@@ -43,7 +45,27 @@ export function CardItem({ title, description, image }: CardItemProps) {
           </p>
         </div>
         <div className="w-full flex justify-center">
-            <AnimatedButton beginText={"Add to cart"} endText={"Added"} />
+            <AnimatedButton
+              beginText={"Add to cart"}
+              endText={"Added"}
+              onClick={
+                async () =>
+                {
+                  console.log("Item added to cart");
+                  
+                  toast.success("Item added to cart");
+                  await fetch("/api/cart", {
+                    method: "POST",
+                    body: JSON.stringify({
+                      id: id,
+                    }),
+                    headers: {
+                      "Content-Type": "application/json",
+                    },
+                  });
+                }
+              }  
+            />
         </div>
       </div>
     </div>

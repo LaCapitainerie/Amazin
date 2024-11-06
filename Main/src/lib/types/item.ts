@@ -6,6 +6,10 @@ export const ItemSchema = z.object({
     price: z.number(),
     image: z.string(),
     description: z.string(),
+
+    lat: z.number(),
+    long: z.number(),
+
     createdAt: z.date(),
     updatedAt: z.date(),
 });

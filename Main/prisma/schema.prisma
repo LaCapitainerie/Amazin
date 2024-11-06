@@ -25,6 +25,8 @@ model User {
   token     String   @unique 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+
+  Order Order[]
 }
 
 model Item {
@@ -35,6 +37,24 @@ model Item {
   image     String
   description String
   stock     Int
+
+  lat       Float
+  long      Float
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  Order Order[]
+}
+
+model Order {
+  id        Int      @id @default(autoincrement())
+
+  userId    Int
+  user      User     @relation(fields: [userId], references: [id])
+
+  items     Item[]
+  total     Float
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt

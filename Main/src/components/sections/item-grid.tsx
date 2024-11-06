@@ -41,7 +41,7 @@ export function ItemGrid({ itemsDefault }: ItemGridProps) {
     return (
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '16px' }}>
             {items.map((item, index) => (
-                <CardItem key={index} title={item.name} description={item.description} image={item.image} />
+                <CardItem key={index} title={item.name} description={item.description} image={item.image} id={item.id} />
             ))}
             {loading && <p>Loading...</p>}
         </div>
